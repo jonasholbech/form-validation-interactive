@@ -1,7 +1,8 @@
 <script>
+  import { toast } from "@zerodevx/svelte-toast";
   export let validateOn;
   export let clearOn;
-  let eventsFired = [];
+  //let eventsFired = [];
   let errorMessage = "";
   let successMessage = "";
   //when props change do stuff
@@ -12,7 +13,8 @@
   }
 
   const blur = (e) => {
-    eventsFired = eventsFired.concat("blur");
+    //eventsFired = eventsFired.concat("blur");
+    toast.push("blur");
     if (clearOn.includes("blur")) {
       errorMessage = "";
     }
@@ -22,7 +24,7 @@
     validate(e);
   };
   const focus = (e) => {
-    eventsFired = eventsFired.concat("focus");
+    toast.push("focus");
     if (clearOn.includes("focus")) {
       errorMessage = "";
     }
@@ -32,7 +34,7 @@
     validate(e);
   };
   const input = (e) => {
-    eventsFired = eventsFired.concat("input");
+    toast.push("input");
     if (clearOn.includes("input")) {
       errorMessage = "";
     }
@@ -42,7 +44,7 @@
     validate(e);
   };
   const submit = (e) => {
-    eventsFired = eventsFired.concat("submit");
+    toast.push("submit");
     if (clearOn.includes("submit")) {
       errorMessage = "";
     }
@@ -78,8 +80,6 @@
 
   <button type="submit">Submit</button>
 </form>
-<h3>Event log</h3>
-<output><pre>{eventsFired.join("\n")}</pre></output>
 
 <style>
   .error {
@@ -87,12 +87,5 @@
   }
   .success {
     color: green;
-  }
-  output {
-    font-family: "Courier New", Courier, monospace;
-  }
-  pre {
-    border: 1px solid #ccc;
-    padding: 1rem;
   }
 </style>

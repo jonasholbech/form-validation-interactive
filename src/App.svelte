@@ -1,10 +1,12 @@
 <script>
+  import { SvelteToast } from "@zerodevx/svelte-toast";
   import Input1 from "./Input1.svelte";
   let validateOn = "blur";
   let clearOn = "focus";
   let validationOptions = ["blur", "focus", "input", "submit"];
 </script>
 
+<h1>The Awesome Form Event Playground</h1>
 <main>
   <section>
     <h2>Clear Errors On</h2>
@@ -37,6 +39,7 @@
   <hr />
   <Input1 {validateOn} {clearOn} />
 </main>
+<SvelteToast />
 
 <style>
 </style>
