@@ -1,7 +1,7 @@
 {
-  "name": "svelte-app",
+  "name": "interactive-form-validation",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "homepage": "https://jonasholbech.github.io/form-validation-interactive/",
   "scripts": {
     "build": "rollup -c",
